@@ -1,9 +1,10 @@
 # SartajPHP-Framework
 Event Driven PHP Web Development
+
 How to Install:-
 After download copy res and demo folder in your root folder. res folder is called frameowrk folder and demo folder is called 
 project folder. You can create your component, classes etc. all reusable code in res folder and customise code in 
-project folder.
+project folder. Learn more:- http://www.sartajphp.com/
 
 If Ioncube loader is not installed on your server, Install it 
 from http://www.ioncube.com/loaders.php .
