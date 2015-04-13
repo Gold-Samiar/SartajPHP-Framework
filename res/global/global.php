@@ -1,5 +1,5 @@
 <?php
-// cashe time in sec
+// cache time in sec
 $mintime = "0";
 $midtime = "0";
 $maxtime = "0";
@@ -7,6 +7,11 @@ $maxtime = "0";
 $sphp_use_session = true;
 // Default Language
 $serv_language = "ENGLISH"; 
+// debug mode
+$debugmode = false;
+//$debugmode = true;
+//$debugprofiler = "{$phppath}classes/base/debug/FirePHPCore/SPHP_Profiler.php";
+$errorLog = false;
 
 $jquerypath = "{$respath}jquery/";
 $comppath = "{$phppath}sartajc/";
