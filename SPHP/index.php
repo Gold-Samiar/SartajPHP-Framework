@@ -3,7 +3,7 @@
  * @package SartajPHP
  * @category SPHP 
  */
-/**
+/** This is old version
  *  Register Application to Run in registery file like reg.php or regapp.php
  * @var Array $controller
  * @example $controller['invest'] = "apps/invest_app.app";<br> 
