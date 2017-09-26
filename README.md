@@ -1,7 +1,22 @@
 # SartajPHP-Framework
 Event Driven PHP Web Development
 
-How to Install:-
+How to install it?
+With Composer:----
+Add to your composer.json:
+
+{
+    "require": {
+        "sartajphp/sartajphp": "~4.4"
+    }
+}
+
+then
+composer install
+    OR
+composer update
+
+With Download Zip file from github :--------
 After download copy res and demo folder in your root folder. res folder is called frameowrk folder and demo folder is called 
 project folder. You can create your component, classes etc. all reusable code in res folder and customise code in 
 project folder. Learn more:- http://www.sartajphp.com/
