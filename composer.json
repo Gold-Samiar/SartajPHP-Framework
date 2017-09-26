@@ -1,0 +1,14 @@
+{
+    "name": "SartajPHP",
+    "description": "SartajPHP Framework.",
+    "license": "MIT",
+    "authors": [
+        { "name": "SartajPHP Contributors", "homepage": "https://github.com/sartaj-singh/SartajPHP-Framework/graphs/contributors" },
+        { "name": "Sartaj Singh", "homepage": "http://www.sartajsingh.com" },
+        { "name": "Sartaj PHP Website", "homepage": "http://www.sartajphp.com" }
+    ],
+    "bin": ["demo/start.php"],
+    "require": {
+        "php": "^5.4"
+    }
+}
