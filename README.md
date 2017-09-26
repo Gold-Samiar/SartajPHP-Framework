@@ -13,7 +13,7 @@ Add to your composer.json:
 
 	    "sartajphp/sartajphp": "~4.4"
 
-	}
+        }
 
     }
 
