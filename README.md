@@ -8,19 +8,23 @@ With Composer:----
 Add to your composer.json:
 
 {
+
     "require": {
+
 	    "sartajphp/sartajphp": "~4.4"
+
 	}
+
 }
 
 
 Then
 
-composer install
+	composer install
 
-    OR
+		OR
 
-composer update
+	composer update
 
 
 With Download Zip file from github :--------
