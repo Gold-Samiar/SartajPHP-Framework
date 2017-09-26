@@ -2,7 +2,7 @@
 $auth = "ADMIN";
 $tblName = "admin";
 $page->Authenticate();
-$page->sesSecure();
+//$page->sesSecure();
 $masterFile = $admmasterf;
 
 if($page->isnew)

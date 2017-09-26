@@ -8,21 +8,20 @@ $sphp_use_session = true;
 // Default Language
 $serv_language = "ENGLISH"; 
 // debug mode
-$debugmode = false;
-//$debugmode = true;
-//$debugprofiler = "{$phppath}classes/base/debug/FirePHPCore/SPHP_Profiler.php";
-$errorLog = false;
+$debugmode = true;
+//$debugprofiler = "{$phppath}classes/base/debug/FirePHPCore/SayjelProfiler.php";
+$debugprofiler = "{$phppath}classes/base/debug/FirePHPCore/SPHP_Profiler2.php";
+$errorLog = true;
+$sphpRunasLib = false;
 
-$jquerypath = "{$respath}jquery/";
-$comppath = "{$phppath}sartajc/";
-$libpath = "{$phppath}sartaj/";
+$jquerypath = "{$respath}jslib/jquery/";
+$comppath = "{$phppath}controls/";
+$libpath = "{$phppath}Sphp/";
 
+$ddriver = "";
 $duser = "root";
 $db = "dbplugin";
 $dpass = "";
-
-$errPage = "err";
-$errorLog = false;
 $dhost = "localhost";
 
 $injectProtection = false;

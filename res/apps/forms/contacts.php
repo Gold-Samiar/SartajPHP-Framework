@@ -9,7 +9,20 @@ $keywords = explode(',',$metakeywords);
 <div class="panel">
 <p>
 <b><?php print $cmpname; ?></b><br />
-
+<?php 
+/*
+$str = $row['cmpaddr1'].'<br />'; 
+$str .= $row['cmpaddr2'].'<br />'; 
+$str .= "City:-".$row['cmpcity'].'<br />'; 
+$str .= "District:-".$row['cmpdistrict'].'<br />';
+$str .= "State:-".$row['cmpstate'].'<br />';
+$str .= "Country:-".$row['cmpcountry'].'<br />'; 
+$str .= "Phone:-".$row['cmpphone'].','.$row['cmpmobile'].'<br />'; 
+$str .= "Fax:-".$row['cmpfax'].'<br />'; 
+print $str;
+ * 
+ */
+?>
 </p>
 <div class="error"><?php print traceError(true); ?></div>
 <div class="msgerr"><?php print traceMsg(true); ?></div>
@@ -60,7 +73,7 @@ $keywords = explode(',',$metakeywords);
                         </tr>
                         <tr> 
                           <td>
-<input type="text" runat="server" id="catcaha" path="sartajc/captcha/Captcha.php"  funsetMaxLen="5" funsetRequired="" funsetForm="form2" funsetMsgName="Secure Code">
+<input type="text" runat="server" id="catcaha" path="controls/captcha/Captcha.php"  funsetMaxLen="5" funsetRequired="" funsetForm="form2" funsetMsgName="Secure Code">
 </td>
                         </tr>
                         <tr> 

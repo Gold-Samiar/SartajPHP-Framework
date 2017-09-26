@@ -1,4 +1,4 @@
 <h1>Error in server page</h1>
-<?php
-
-?>
+<div>
+    <?php print traceMsg(true). traceError(true).  traceErrorInner(true); ?>
+</div>

@@ -1,17 +1,14 @@
 <?php
-class AJAXApp extends WebApp{
+class AJAXApp extends Sphp\tools\WebApp{
     public function page_new(){
         global $jquerypath,$libpath;
         addFileLink("{$jquerypath}jslib.js",true);
         addFileLink("{$libpath}comp/html/jslib/validation.js",true);
         addFileLink("{$libpath}comp/html/jslib/jquery.form.js",true);
+//        addFileLink("{$jquerypath}ui/jquery.ui.button.min.js",true);
+//        addFileLink("{$jquerypath}ui/jquery.ui.dialog.min.js",true);
+        
     }
     
-    public function page_event($event,$evtp){
-        $fun = "page_event_{$event}";
-            if(method_exists($this, $fun)){
-        $this->{$fun}($evtp);
-            }
-    }
 
 }

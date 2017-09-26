@@ -13,6 +13,12 @@ Password
 <input name="txtpass" type="password" class="inputpass" runat="server" funsetForm="form2" funsetMinLen="4" funsetRequired="" funsetMsgName="Password">
 </td></tr>
 <tr><td>
+Remember me
+</td><td>
+    <input name="chkremb" type="checkbox" class="inputpass" value="yes" />
+</td></tr>
+
+<tr><td>
 &nbsp;</td><td>
               <input type="submit" value="Login">
 </td></tr>

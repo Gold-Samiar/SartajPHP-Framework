@@ -13,10 +13,12 @@ public $phppath = "";
 public $respath = "";
 public $JSServer = null;
 public $Client = null;
+public $dbEngine = null;
+public $debug = null;
 
 
 public function __construct(){
-global $masterf,$apppath,$phppath,$respath;
+global $masterf,$apppath,$phppath,$respath,$mysql,$ctrl;
 $this->page = getDefaultPageObject();
     $tempobj = new TempFile("",true);
     $this->JSServer = getJSServer();
@@ -24,19 +26,22 @@ $this->page = getDefaultPageObject();
     $this->apppath = $apppath;
     $this->phppath = $phppath;
     $this->respath = $respath;
+    $this->dbEngine = getDBEngine();
+    $this->debug = $ctrl->debug;
     $this->setTempFile($tempobj);
     $this->maintempform = $tempobj;
     $this->showNotTempFile();
     $this->masterFile = $masterf;
     $this->onstart();
 }
-public function setup(){
-    $tempfile = $this->maintempform;
+public function setup($tempobj){
+    $this->maintempform = $tempobj;
+    $this->ontempinit($tempobj);
 // add event handler into components
-$this->fixCompEventHandlers($this->maintempform);
+    $this->fixCompEventHandlers($this->maintempform);
 }
-public function process(){
-    $this->onready();
+public function process($tempobj){ $this->ontempprocess($tempobj); }
+public function processEvent(){
     $this->call_page_events();    
 }
 private function call_page_events(){
@@ -57,10 +62,11 @@ if($this->page->isevent){
     $this->page_view();
 }else if($this->page->issubmit){
     $this->page_submit();
-}else if($this->page->isinsert){
+    if($this->page->isinsert){
     $this->page_insert();
-}else if($this->page->isupdate){
+    }else if($this->page->isupdate){
     $this->page_update();
+    }
 }
 
 if($this->tempform[0]){
@@ -98,6 +104,8 @@ public function setTableName($dbtable){
 
 public function onstart(){}
 public function onready(){}
+public function ontempinit($tempobj){}
+public function ontempprocess($tempobj){}
 public function page_delete(){}
 public function page_view(){}
 public function page_submit(){}
@@ -111,10 +119,9 @@ public function onrun(){}
 public function onrender(){}
 
 public function run(){
-    $this->setup();
+    $this->onready();
     $this->onrun();
-    $this->process();
-
+    $this->processEvent();
 }
 public function render(){
     $this->onrender();    
