@@ -7,15 +7,15 @@ With Composer:----
 
 Add to your composer.json:
 
-{
+    {
 
-    "require": {
+        "require": {
 
 	    "sartajphp/sartajphp": "~4.4"
 
 	}
 
-}
+    }
 
 
 Then
