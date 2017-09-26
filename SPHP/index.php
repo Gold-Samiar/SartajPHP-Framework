@@ -15,7 +15,7 @@ $controller = array();
  * Collection of All Controls Exist in Current Application
  * @var Array $Components
  */
-$Components = array();
+$Components = array(); 
 /**
  * Generate Title Tag in master with getHeaderHTML() Function
  * @var String $title
