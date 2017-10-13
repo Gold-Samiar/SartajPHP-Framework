@@ -33,6 +33,8 @@ After download copy res and demo folder in your root folder. res folder is calle
 project folder. You can create your component, classes etc. all reusable code in res folder and customise code in 
 project folder. Learn more:- http://www.sartajphp.com/
 
+Learn on Youtube Channel -- https://www.youtube.com/channel/UCKENEpj-PZvpS2lC4cqh-7g
+
 If Ioncube loader is not installed on your server, Install it 
 from http://www.ioncube.com/loaders.php .
 Enable rewrite module in Apache server for .htaccess file.
