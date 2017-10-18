@@ -1,4 +1,4 @@
-# SartajPHP-Framework
+# SartajPHP PHP Framework
 Event Driven PHP Web Development
 
 How to install it?
