@@ -1,6 +1,6 @@
-<table style="border: none;"><tr><td style="width: 100px;">
+<table style="border: none;"><tr><td>
 <p align="center"><a href="http://sartajphp.com" target="_blank">
-    <img src="http://sartajphp.com/temp/default/images/logo.png">
+    <img src="http://sartajphp.com/temp/default/images/logo.png" style="width: 100px;">
 </a></p>
 </td><td>
 [SartajPHP][1] is a **PHP framework** for web applications, Command Line Application, 
@@ -46,7 +46,7 @@ With Download Zip file from github :--------
 
 After download copy res and demo folder in your root folder. res folder is called frameowrk folder and demo folder is called 
 project folder. You can create your component, classes etc. all reusable code in res folder and customise code in 
-project folder. Learn more:- http://www.sartajphp.com/
+project folder. Learn more:- [SartajPHP Website][1]
 
 
 Documentation
