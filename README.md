@@ -1,6 +1,6 @@
-<table style="border: none;"><tr><td>
+<table border="none"><tr><td width="100">
 <p align="center"><a href="http://sartajphp.com" target="_blank">
-    <img src="http://sartajphp.com/temp/default/images/logo.png" style="width: 100px;">
+    <img src="http://sartajphp.com/temp/default/images/logo.png">
 </a></p>
 </td><td>
 [SartajPHP][1] is a **PHP framework** for web applications, Command Line Application, 
