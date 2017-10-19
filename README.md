@@ -1,4 +1,4 @@
-<table><tr><td>
+<table border=0><tr><td width="100">
 <p align="center"><a href="http://sartajphp.com" target="_blank">
     <img src="http://sartajphp.com/temp/default/images/logo.png">
 </a></p>
