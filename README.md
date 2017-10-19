@@ -1,6 +1,20 @@
-# SartajPHP PHP Framework
-Event Driven PHP Web Development
+<p align="center"><a href="http://sartajphp.com" target="_blank">
+    <img src="http://sartajphp.com/temp/default/images/logo.png">
+</a></p>
 
+[SartajPHP][1] is a **PHP framework** for web applications, Command Line Application, 
+Desktop Application with Hybrid Technology and Mobile Application with Hybrid and Ajax Platform.
+This PHP Framework used event oriented programming model. It is full flexible framework
+where you can build any type of application like MVC, Component Oriented, API, Multi Tier,
+Cross Platform, Web Service, plugin or extension for another PHP Framework, wrapper 
+for another PHP framework or applications or your new invention. This PHP Framework 
+has lots of reusable **PHP components**. SartajPHP is used by hundreds of web applications.
+
+Installation
+------------
+
+* [Install SartajPHP][1] with Composer or download zip file from github(see
+  [GitHub][2]).
 How to install it?
 
 With Composer:----
@@ -33,23 +47,37 @@ After download copy res and demo folder in your root folder. res folder is calle
 project folder. You can create your component, classes etc. all reusable code in res folder and customise code in 
 project folder. Learn more:- http://www.sartajphp.com/
 
-Learn on Youtube Channel -- https://www.youtube.com/channel/UCKENEpj-PZvpS2lC4cqh-7g
 
-If Ioncube loader is not installed on your server, Install it 
-from http://www.ioncube.com/loaders.php .
-Enable rewrite module in Apache server for .htaccess file.
-Now type http://localhost/demo/ in browser and press enter to run demo project.
+Documentation
+-------------
 
-Important Files:-
-1. comp.php : Database, Email, Master Designs and other global Settings
-2. reg.php :  Register Application with Controller.
-3. setg.php:  res(SartajPHP Framework) folder path settings and other global settings
-4. cachelist.php : cache engine settings file
-5. start.php : SartajPHP Engine Starter File
-6. res/temp/default/master.php : Default Master Design File
+* Read the [Getting Started guide][1] if you are new to SartajPHP.
+* Video Tutorial on Youtube [SartajPHP Video Tutorial][3] to learn SartajPHP practically.
+* [SartajPHP v4.3.x API][5]
+* [SartajPHP v4.4.x API][6]
+ 
 
-Some Important Standard Rule:-
-1. All Path will be end with slash /
-2. Uses $respath for resources like css,js files for process on client side and $phppath uses for PHP file path on server side files
-4. $apppath is path of application location and type of php path, you can not use this path for js,css
-5. all paths are related to project folder
+Community
+---------
+
+* Follow us on [GitHub][2], [Youtube][3] and [Facebook][4].
+
+Contributing
+------------
+
+For Contribute and Support us please contacts on our [Facebook][4] Page
+
+Security Issues
+---------------
+
+If you discover a security vulnerability within SartajPHP PHP Framework, please contacts us
+[Facebook Page][4].
+
+
+
+[1]: http://sartajphp.com
+[2]: https://github.com/sartaj-singh/SartajPHP-Framework
+[3]: https://www.youtube.com/channel/UCKENEpj-PZvpS2lC4cqh-7g
+[4]: https://www.facebook.com/DevelopmentFramework/
+[5]: http://www.sartajphp.com/api/
+[6]: http://www.sartajphp.com/api2/
