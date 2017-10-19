@@ -2,6 +2,9 @@
 <p align="center"><a href="http://sartajphp.com" target="_blank">
     <img src="http://sartajphp.com/temp/default/images/logo.png">
 </a></p>
+
+Info
+-----------
 [SartajPHP][1] is a **PHP framework** for web applications, Command Line Application, 
 Desktop Application with Hybrid Technology and Mobile Application with Hybrid and Ajax Platform.
 This PHP Framework used event oriented programming model. It is full flexible framework
