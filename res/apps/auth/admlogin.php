@@ -26,9 +26,9 @@ if($page->issubmit){
  if($dynData->getComponent("txtuserID")->value=="admin" && $dynData->getComponent("txtpass")->value=="1234"){
         $number_of_days = 10 ;
         $date_of_expiry = time() + 60 * 60 * 24 * $number_of_days ;
-//        if(isset($_REQUEST["chkremb"])) {
+        if(isset($_REQUEST["chkremb"])) {
             setcookie( "algdec", "dome1", $date_of_expiry );
-//        }
+        }
 setSession('ADMIN', $cmpid);
 getWelcome();
 }else{

@@ -65,13 +65,13 @@ switch($formNo){
     case 1:{
 $genFormTemp->run();
 $dynData = $genFormTemp;
-includeOnce("$masterFile");
+include_once("$masterFile");
 break;
     }
     case 2:{
 $showallTemp->run();
 $dynData = $showallTemp;
-includeOnce("$masterFile");
+include_once("$masterFile");
 break;
     }
 }

@@ -8,7 +8,6 @@ include_once("{$libpath}tools/Control.php");
 
 
 class MenuLink extends Control{
-private $mnuSub = false;
 
 public function __construct($name='',$fieldName='',$tableName='') {
 $this->init($name,$fieldName,$tableName);
@@ -33,8 +32,9 @@ if($href==''){
 }else if($blnAjaxLink){
     $href = "javascript: menu_ajax('$href');";
 }
+$this->setAttribute("class", "nav-item");
 if($this->getInnerHTML()==''){
-$this->setInnerHTML('<a href="'.$href.'"><span>'.$tit.'</span></a>');
+$this->setInnerHTML('<a class="nav-link" href="'.$href.'">'.$tit.'</a>');
 }
 $this->tagName = "li";
 }

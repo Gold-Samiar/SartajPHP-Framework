@@ -28,26 +28,29 @@ public function setSub(){
 }
 public function onrender(){
 global $JSServer,$blnAjaxLink;
-$mnuhref = $this->parameterA['href'];
+$mnuhref = $this->getAttribute('href');
 $mnutext = $this->getAttribute('caption');
-$mnuclass = $this->getAttribute('class');
 $mnutitle = $this->getAttribute('title');
 
 $href = $this->getAttribute('href');
 $tit = $this->getAttribute('caption');
 $this->parameterA = array();
+$this->setAttribute('class',"dropdown-menu");
 if($href==''){
     $href = "#";
 }else if($blnAjaxLink){
     $href = "javascript: menu_ajax('$href');";
 }
 if(!$this->mnuSub){
-$this->preTag = '<li><a href="'.$href.'" class="parent"><span>'.$tit.'</span></a><div>';
-}else{
-$this->preTag = '<li><a href="'.$href.'" class="parent2">'.$tit.'</a><div>';    
-}
-$this->postTag = '</div></li>';
+$this->setPreTag('<li class="nav-item dropdown nav-dli"><a class="nav-link dropdown-toggle nav-dlink" data-toggle="dropdown" href="'.$href.'" >'.$tit.'</a>');
+$this->setPostTag('</li>');
 $this->tagName = "ul";
+}else{
+$this->setPreTag('<li class="dropdown-submenu nav-dli"><a class="dropdown-item dropdown-toggle nav-dlink" data-toggle="dropdown" href="'.$href.'" >'.$tit.'</a>');    
+$this->setPostTag('</li>');
+$this->setAttribute('class',"dropdown-menu");
+$this->tagName = "ul";
+}
 }
 
 }

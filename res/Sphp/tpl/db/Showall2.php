@@ -4,10 +4,10 @@
  *
  * @author Administrator
  */
-includeOnce("{$libpath}comp/data/Pagination.php");
-includeOnce("{$libpath}comp/data/DTable.php");
-includeOnce("{$libpath}comp/html/HTMLForm.php");
-includeOnce("{$libpath}widgets/RenderComp.php");
+include_once("{$libpath}comp/data/Pagination.php");
+include_once("{$libpath}comp/data/DTable.php");
+include_once("{$libpath}comp/html/HTMLForm.php");
+include_once("{$libpath}widgets/RenderComp.php");
 
 class Showall {
 private $RenderComp;

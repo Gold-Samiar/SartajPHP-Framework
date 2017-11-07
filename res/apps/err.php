@@ -1,4 +1,6 @@
-<h1>Error in server page</h1>
-<div>
-    <?php print traceMsg(true). traceError(true).  traceErrorInner(true); ?>
-</div>
+<?php
+
+$dynData = new TempFile("{$apppath}forms/error_msg.php");
+
+$dynData->run();
+include_once("$masterf");

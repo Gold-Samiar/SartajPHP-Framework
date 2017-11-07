@@ -39,7 +39,7 @@ break;
 
 if($page->isview)
 {
-$page->viewData($genFormTemp->getComponent('form2'));
+$page->viewData($form2);
 $JSServer->addJSONTemp($genFormTemp,'showall_editor');
 }
 if($page->isdelete)
@@ -80,9 +80,9 @@ $page->insertData();
 if(!getCheckErr()){
 //setMsg('app1','New Data Record is Inserted, want more record add fill form again' );
 $JSServer->addJSONBlock('jsp','proces','$( "#showall_dlg" ).dialog( "close" );');
+$JSServer->addJSONComp($showall,'showall_list');
 setMsg('New Record','Your Data is added in Database');
 $JSServer->addJSONBlock('html','showmsgdet',traceMsg(true));    
-$JSServer->addJSONComp($showall,'showall_list');
 }else{
 setErr('app1','Can not add Data' );
 $JSServer->addJSONBlock('html','frmerrdet',traceError(true));
@@ -107,13 +107,13 @@ switch($formNo){
     case 1:{
 $genFormTemp->run();
 $dynData = $genFormTemp;
-includeOnce("$masterFile");
+include_once("$masterFile");
 break;
     }
     case 2:{
 $showallTemp->run();
 $dynData = $showallTemp;
-includeOnce("$masterFile");
+include_once("$masterFile");
 break;
     }
     case 3:{

@@ -20,35 +20,29 @@ break;
 //addFrontPlace('videomenu');
 //runFrontPlace('videomenu');
 ?><!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-<?php addBootStrap();  print getHeaderHTML(); ?>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php addjQueryUI(); addBootStrap();  print getHeaderHTML(); ?>
 <link href="<?php print $respath; ?>temp/default/css/framework.css" rel="stylesheet"  type="text/css" />
 <link rel="icon" type="image/gif" href="<?php print $basepath; ?>favicon.gif" />
 </head>
 <body>
-<TABLE WIDTH=1100 BORDER=0 CELLPADDING=0 CELLSPACING=0 align="center" class="panel bgcontainer" >
-	<TR>
-		<TD colspan="3">
-<table width="100%"><tr><td>
-<h2 class="heading" style="font-size:36px;"><?php print $cmpname; ?></h2>
-</td><td align="right">
-
-</td></tr><tr><td colspan="2">
-<div class="bar">
+    <div class="container">
+        <div class="row"><div class="col panel">
+        <div class="row"><div class="col">
+    <h2 class="heading" style="font-size:36px;"><?php print $cmpname; ?></h2>
+    </div>
+            </div>
+<div class="row"><div class="col">
 <?php print $menu->render(); ?>
-</div>
-</td></tr></table>
-</TD></TR>	<TR>
-            <TD width="200" valign="top">
-                <div id="leftdiv"><?php // renderFrontPlace('videomenu'); ?></div>
-		</TD>
-		<TD width="900" valign="top" class="padding-left padding-right" colspan="2">
+    </div></div>
+<div class="row"><div class="col">        
 <?php $dynData->render(); ?>
-</TD>
-	</TR>
-</TABLE>
+</div>
+</div>
+            </div></div></div>
 <?php print getFooterHTML(); print traceError(); print traceErrorInner(); ?>
 </body>
 </html>
