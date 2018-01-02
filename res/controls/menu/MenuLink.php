@@ -4,9 +4,9 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
 
 
+namespace{
 class MenuLink extends Control{
 
 public function __construct($name='',$fieldName='',$tableName='') {
@@ -40,4 +40,4 @@ $this->tagName = "li";
 }
 
 }
-?>
+}

@@ -4,8 +4,8 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
-include_once("{$comppath}jquery.php");
+
+namespace{
 $blnAjaxLink = false;
 
 class MenuBar extends Control{
@@ -91,4 +91,4 @@ $this->setPostTag('</div></nav>');
 
 }
 
-?>
+}

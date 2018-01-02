@@ -4,8 +4,8 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
-include_once("{$comppath}jquery.php");
+
+namespace{
 $mnucusto = '';
 
 
@@ -25,4 +25,4 @@ $ele->innertext ="";
 
 
 }
-?>
+}

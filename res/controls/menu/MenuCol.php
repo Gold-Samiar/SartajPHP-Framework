@@ -4,7 +4,7 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
+
 
 
 class MenuCol extends Control{

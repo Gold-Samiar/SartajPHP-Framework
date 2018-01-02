@@ -198,11 +198,13 @@ $(obj).attr("data-toggle","tooltip");
 $(obj).attr("title",msg);
 $(function () {
   $(obj).tooltip({title: msg});
-  $(obj).tooltip('fixTitle');
+  $(obj).tooltip('show');
+  if(sphp_versions['bootstrap']==='3'){
+      $(obj).tooltip('fixTitle');
+  }
 });
 //alert(msg);
 obj.focus();
-
 }
 function clearValidationError(obj){
 $('.valide').removeClass("valide alert-danger");

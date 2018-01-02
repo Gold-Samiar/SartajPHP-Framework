@@ -4,9 +4,7 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
-
-
+namespace{
 class Menu extends Control{
 private $mnuSub = false;
 
@@ -54,4 +52,5 @@ $this->tagName = "ul";
 }
 
 }
-?>
+
+}

@@ -4,8 +4,8 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
-include_once("{$comppath}jquery.php");
+
+
 
 class Accordion extends Control{
 public function oncreate($element){

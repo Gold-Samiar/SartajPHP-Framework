@@ -4,9 +4,9 @@
  *
  * @author SARTAJ
  */
-include_once("{$libpath}tools/Control.php");
 
 
+namespace{
 class MenuItem extends Control{
 
 public function __construct($name='',$fieldName='',$tableName='') {
@@ -31,4 +31,4 @@ $this->tagName = "li";
 }
 
 }
-?>
+}
