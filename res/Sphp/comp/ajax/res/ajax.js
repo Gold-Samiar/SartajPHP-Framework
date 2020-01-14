@@ -6,10 +6,10 @@ var onajaxreceive = function($response){
     
 };
 
-$.fn.getJSON = function(){
+jql.fn.getJSON = function(){
     var o = {};
     var a = this.serializeArray();
-    $.each(a, function() {
+    jql.each(a, function() {
         if (o[this.name]) {
             if (!o[this.name].push) {
                 o[this.name] = [o[this.name]];
@@ -21,17 +21,17 @@ $.fn.getJSON = function(){
     });
     return o;
 };
-$.fn.JSONtoString = function(){
+jql.fn.JSONtoString = function(){
 o = "[";
-$.each(this, function(key,val) {
+jql.each(this, function(key,val) {
 o += "," + JSON.stringify(val);
     });
     o += "]";
     return o;
 };
 
-    $.fn.sleep = function(time){  
-        var i = $(this);  
+    jql.fn.sleep = function(time){  
+        var i = jql(this);  
         i.queue(function(){  
             setTimeout(function(){ 
                 i.dequeue(); 
@@ -39,7 +39,7 @@ o += "," + JSON.stringify(val);
         });  
     };  
 
-(function( $ ) {
+(function( jql ) {
 	// Several of the methods in this plugin use code adapated from Prototype
 	//  Prototype JavaScript framework, version 1.6.0.1
 	//  (c) 2005-2007 Sam Stephenson
@@ -63,7 +63,7 @@ o += "," + JSON.stringify(val);
 			
 			var parts = objectName ? objectName.split(regs.dot) : [],
 				length =  parts.length,
-				currents = $.isArray(roots) ? roots : [roots || window],
+				currents = jql.isArray(roots) ? roots : [roots || window],
 				current,
 				ret, 
 				i,
@@ -94,7 +94,7 @@ o += "," + JSON.stringify(val);
 			}
 		},
 
-		str = $.String = $.extend( $.String || {} , {
+		str = jql.String = jql.extend( jql.String || {} , {
 			getObject : getObject,
 			capitalize: function( s, cache ) {
 				return s.charAt(0).toUpperCase() + s.substr(1);
@@ -136,15 +136,15 @@ o += "," + JSON.stringify(val);
 			}
 		});
 
-})(jQuery);
-(function( $ ) {
+})(jql);
+(function( jql ) {
 
 	// if we are initializing a new class
 	var initializing = false,
-		makeArray = $.makeArray,
-		isFunction = $.isFunction,
-		isArray = $.isArray,
-		extend = $.extend,
+		makeArray = jql.makeArray,
+		isFunction = jql.isFunction,
+		isArray = jql.isArray,
+		extend = jql.extend,
 		concatArgs = function(arr, args){
 			return arr.concat(makeArray(args));
 		},
@@ -171,7 +171,7 @@ o += "," + JSON.stringify(val);
 			}
 		},
 
-	clss = $.Class = function() {
+	clss = jql.Class = function() {
 		if (arguments.length) {
 			clss.extend.apply(clss, arguments);
 		}
@@ -218,7 +218,7 @@ o += "," + JSON.stringify(val);
 				return cur;
 			}
 		},
-		getObject: $.String.getObject,
+		getObject: jql.String.getObject,
 		newInstance: function() {
 			var inst = this.rawInstance(),
 				args;
@@ -325,7 +325,7 @@ o += "," + JSON.stringify(val);
 	callback = clss.callback;
 
 
-})(jQuery);
+})(jql);
 
 var xmlHttp;
 var obj1;
@@ -388,7 +388,7 @@ else if(type=='SELECT'){
 obj1.options[obj1.selectedIndex].value = val1;
 }
 else if(type=='DIV'){
-$(obj1).html(val1);
+jql(obj1).html(val1);
 }
 break;
 }
@@ -400,7 +400,7 @@ function setActString(){
 if (xmlHttp.readyState==4){
      if (xmlHttp.status == 200) {
    var Res = xmlHttp.responseText;
-Res = $.trim(Res);
+Res = jql.trim(Res);
 setVald(obj1,Res);
 if(objProg!=''){
 eval(objProg+'()');
@@ -465,7 +465,7 @@ xmlHttp.send(null);
 
 }
 function createOverlay(text) {
-    $("<table id='overlay'><tbody><tr><td>" + text + "</td></tr></tbody></table>").css({
+    jql("<table id='overlay'><tbody><tr><td>" + text + "</td></tr></tbody></table>").css({
         "position": "fixed",
         "top": 0,
         "left": 0,
@@ -482,7 +482,7 @@ function createOverlay(text) {
     }).appendTo("body");
 }
 function displayOverlay(id) {
-    $("#" + id).css({
+    jql("#" + id).css({
         "position": "fixed",
         "top": 0,
         "left": 0,
@@ -504,15 +504,15 @@ function displayOverlay(id) {
 //    },10000);
     }
 function removeOverlay() {
-    $("#overlay").remove();
+    jql("#overlay").remove();
 }
 function hideOverlay(id) {
-    $("#" + id).css({
+    jql("#" + id).css({
         "display": "none",
         "visibility": "hidden"
     });
 }
-function ajaxcall(idimg,fun,url,data2,cache,dataType,async,runbackground1){
+function ajaxcall(idimg,fun,url,data2,cache,dataType,async,runbackground1,callback){
 var async2 = true;
 var runbackground = false;
 if(async==false){
@@ -524,14 +524,14 @@ runbackground = true;
 if(runbackground==false){
 if(idimg!=''){
 //document.getElementById(idimg).style.visibility = 'visible';
-displayOverlay($("#" + idimg).html());
+displayOverlay(jql("#" + idimg).html());
 }else if(document.getElementById("ajax_loader")!=null){
 idimg = "ajax_loader";
 //document.getElementById(idimg).style.visibility = 'visible';	
 displayOverlay(idimg);
 	}
 }
-$.ajax({
+jql.ajax({
 type: "POST",
 url: url,
 dataType: dataType,
@@ -544,8 +544,11 @@ if(runbackground==false && idimg!=''){
 hideOverlay(idimg);
 //document.getElementById(idimg).style.visibility = 'hidden';
 }
-fun(html);
-onajaxreceive(html)
+if(callback != undefined){
+fun(html,callback); 
+}else{
+fun(html,onajaxreceive); 
+}
 }
 });
 }
@@ -555,20 +558,21 @@ ajaxcall(idimg,sartajpro,url,data,cache,dataType);
 function getURL(url,data,runbackground){
 ajaxcall('',sartajpro,url,data,true,'json',true,runbackground);
 }
-function getURLSync(url,data,runbackground){
-ajaxcall('',sartajpro,url,data,true,'json',false,runbackground);
-return returndataobj;
+function getAJAX(url,data,runbackground,callback){
+ajaxcall('',sartajpro,url,data,true,'json',true,runbackground,callback);
 }
-function sartajpro(val){
+function sartajpro(val,callback){
     sartajpro2(val);
 if(val.response.retobj!= undefined){ 
-    returndataobj = val.response.retobj;
+    callback(val.response.retobj);
+}else{
+    callback();
 }    
 }
 function sartajpro2(val){
 if(val.response.css!= undefined){ 
-$.each(val.response.css, function(keym2, valuem2) {
-$.each(valuem2, function(key, value) {
+jql.each(val.response.css, function(keym2, valuem2) {
+jql.each(valuem2, function(key, value) {
 sartajproc('css',key,value,val);
 });
 });
@@ -579,8 +583,8 @@ ldjs(val);
 }
 function ldjs(val){
 if(val.response.jsfl!= undefined){ 
-$.each(val.response.jsfl, function(keym2, valuem2) {
-$.each(valuem2, function(key, value) {
+jql.each(val.response.jsfl, function(keym2, valuem2) {
+jql.each(valuem2, function(key, value) {
 sartajproc('jsfl',key,value,val);
 });
 });
@@ -590,29 +594,29 @@ ldmid(val);
 }
 function ldmid(val){
 if(val.response.html!= undefined){ 
-$.each(val.response.html, function(keym2, valuem2) {
-$.each(valuem2, function(key, value) {
+jql.each(val.response.html, function(keym2, valuem2) {
+jql.each(valuem2, function(key, value) {
 sartajproc('html',key,value,val);
 });
 });
 }
 if(val.response.js!= undefined){ 
-$.each(val.response.js, function(keym2, valuem2) {
-$.each(valuem2, function(key, value) {
+jql.each(val.response.js, function(keym2, valuem2) {
+jql.each(valuem2, function(key, value) {
 sartajproc('js',key,value,val);
 });
 });
 }
 if(val.response.jsp!= undefined){ 
-$.each(val.response.jsp, function(keym2, valuem2) {
-$.each(valuem2, function(key, value) {
+jql.each(val.response.jsp, function(keym2, valuem2) {
+jql.each(valuem2, function(key, value) {
 sartajproc('jsp',key,value,val);
 });
 });
 }
 if(val.response.jsf!= undefined ){ 
-$.each(val.response.jsf, function(keym2, valuem2) {
-$.each(valuem2, function(key, value) {
+jql.each(val.response.jsf, function(keym2, valuem2) {
+jql.each(valuem2, function(key, value) {
 sartajproc('jsf',key,value,val);
 });
 });
@@ -623,7 +627,7 @@ function sartajproc(keym,key,value,val){
 if(key!= undefined){ 
 switch(key){
     case 'proces' :{
-$.globalEval(value);
+jql.globalEval(value);
 break;
     }
     case 'csslink' :{
@@ -638,10 +642,10 @@ break;
     }
 }
 if(keym=="html"){ 
-$('#'+key).html(value);
+jql('#'+key).html(value);
 }else if(keym=="jsf"){ 
 var funCall = key + "(" + value + ");";
-$.globalEval(funCall);
+jql.globalEval(funCall);
 }
 
 }
@@ -653,14 +657,14 @@ furl = fileListn[servfindex];
 var link = null;
 if(ftype == 'css'){
 if(include_once(furl,'css')){
-link = $("<link />");
-link.appendTo($('head')).attr({load: function() {
+link = jql("<link />");
+link.appendTo(jql('head')).attr({load: function() {
 servfindex += 1;
 //console.log('download ' + furl + ' done');
 loadFiles(fileListn,ftype,complete,val);
 },type: "text/css",rel: 'stylesheet',href: furl});
 
-//$("head").append( link ); 
+//jql("head").append( link ); 
 }else{
 servfindex += 1;
 //console.log('already download ' + furl + ' done');
@@ -669,7 +673,7 @@ loadFiles(fileListn,ftype,complete,val);
 }
 else if(ftype == 'jsfl'){
 if(include_once(furl,'jsfl')){
-link = $('<script></script>');
+link = jql('<script></script>');
 link.attr({
         type: "text/javascript",
         load: function() {
@@ -679,8 +683,8 @@ servfindex += 1;
 },
 src: furl
 });
-$("body").append( link ); 
-//alert(servfindex + ' ap ' + $(link));
+jql("body").append( link ); 
+//alert(servfindex + ' ap ' + jql(link));
 loadFiles(fileListn,ftype,complete,val);
 
 }else{
@@ -698,7 +702,7 @@ loadFiles(fileListn,ftype,complete,val);
 
 var jq = {
     get: function( obj ) { 
-    return $(obj);
+    return jql(obj);
     },
     flush: function() { }
   };
@@ -706,10 +710,10 @@ var jsfilelinks = {};
 function include_once(url,ftype) {    
 var blnF = true;
 if(ftype=='jsfl'){
-if ($('head').find('script[src="' + url + '"]').length>0) {
-//$('head script').each(function() {
-//    stuff[$(this).attr('value')] = $(this).attr('checked');
-//console.log('file js yes ' + $(this).attr('src') + ' done ');
+if (jql('head').find('script[src="' + url + '"]').length>0) {
+//jql('head script').each(function() {
+//    stuff[jql(this).attr('value')] = jql(this).attr('checked');
+//console.log('file js yes ' + jql(this).attr('src') + ' done ');
 //});
 blnF = false;
     }
@@ -720,7 +724,7 @@ else{
 jsfilelinks[url] = url;    
 }
 }else if(ftype=='css'){
-if ($('head').find('link[href="' + url + '"]').length>0) {
+if (jql('head').find('link[href="' + url + '"]').length>0) {
 //console.log('file css yes ' + url + ' done');
 blnF = false;
     }
@@ -728,9 +732,9 @@ blnF = false;
 return blnF;
 }
 function time_next(jqtimeline) {
-$(jqtimeline).each(function(index) {
-var at_time = $(this)[0].at_time;
-var command = ($(this)[0].command);
+jql(jqtimeline).each(function(index) {
+var at_time = jql(this)[0].at_time;
+var command = (jql(this)[0].command);
  if(at_time != 'undefined'){
     setTimeout(function () {
 var command2 = command;
@@ -741,7 +745,7 @@ var command2 = command;
 });
 
 }
-$.Class("Row",{},{
+jql.Class("Row",{},{
 	init: function(key,drow,tblName){
 		this.key = key;
 		this.tblName = tblName;
@@ -758,7 +762,7 @@ status: '',
         }        
     }
 );
-$.Class("Recordset",
+jql.Class("Recordset",
 // static properties
 {
   count: 0  
@@ -854,9 +858,9 @@ this.rows = [];
 }
 
 });
-$.fn.outerHTML = function() 
+jql.fn.outerHTML = function() 
 {
-  $t = $(this);
+  $t = jql(this);
   if( "outerHTML" in $t[0] ) return $t[0].outerHTML; 
   else return $t.clone().wrap('<p>').parent().html(); 
 }

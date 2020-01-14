@@ -8,7 +8,7 @@ case 'Microsoft Internet Explorer':{
 if(type=='TextField'){
 val1 = obj1.getAttribute('value');
 if(!isset(val1)){
-val1 = $(obj1).val();    
+val1 = jql(obj1).val();    
 }
 }
 else if(type=='TextArea'){
@@ -22,10 +22,10 @@ break;
 
 default:{
 if(type=='TextField'){
-val1 = $(obj1).val();    
+val1 = jql(obj1).val();    
 }
 else if(type=='TextArea'){
-val1 = $(obj1).val();    
+val1 = jql(obj1).val();    
 }
 else if(type=='Select'){
 val1 = obj1.options[obj1.selectedIndex].value;
@@ -192,20 +192,20 @@ return returnval;
 
 function displayValidationError(obj,msg){
 //clearValidationError(obj);
-$(obj).one("keyup",clearValidationError);
-$(obj).addClass("valide alert-danger");
-$(obj).attr("data-toggle","tooltip");
-$(obj).attr("title",msg);
-$(function () {
-  $(obj).tooltip({title: msg});
-  $(obj).tooltip('show');
+jql(obj).one("keyup",clearValidationError);
+jql(obj).addClass("valide alert-danger");
+jql(obj).attr("data-toggle","tooltip");
+jql(obj).attr("title",msg);
+jql(function () {
+  jql(obj).tooltip({title: msg});
+  jql(obj).tooltip('show');
   if(sphp_versions['bootstrap']==='3'){
-      $(obj).tooltip('fixTitle');
+      jql(obj).tooltip('fixTitle');
   }
 });
 //alert(msg);
 obj.focus();
 }
 function clearValidationError(obj){
-$('.valide').removeClass("valide alert-danger");
+jql('.valide').removeClass("valide alert-danger");
 }

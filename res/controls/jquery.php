@@ -4,30 +4,73 @@
 //addFileLink("{$respath}jquery/jquery-min.js",true);
 //addFileLink("{$respath}jquery/jquery-min1.10.js",true,"jquery-min");
 //addFileLink("{$respath}jslib/jquery/jquery-min1.9.1.js",true,"jquery-min");
-addFileLink("{$respath}jslib/jquery/jquery-3.2.1.min.js", true, "jquery-min");
+addFileLink("{$respath}jslib/jquery/jquery-3.2.1.min.js", true, "jquery-min","js","jquery:3.2.1");
 
 
 
 // add jlib
-addFileLink("{$respath}jslib/jquery/jlib.js", true);
+addFileLink("{$respath}jslib/jquery/jslib.js", true);
 
 // load js migrate lib 
 //addFileLink("{$respath}jquery/jquery-migrate-1.2.1.min.js",true);
 addHeaderJSFunction('ready', "$(document).ready(function() {", "});", true);
 addHeaderJSFunction('ready', "$(document).ready(function() {", "});");
 addHeaderJSFunction('pageload', "$(window).on('load',function() {", "});", true);
+addFileLink('window.jQuery = window.$ = jql;',true,"jquery-js-code","js");
 
-function addjQueryUI() {
+function addjQueryl($default=false,$replaceVar="") {
     global $respath;
-    addFileLink("{$respath}jslib/jquery/jquery-ui.min.css", true);
-    addFileLink("{$respath}jslib/jquery/jquery-ui.theme.min.css", true);
-    addFileLink("{$respath}jslib/jquery/jquery-ui.structure.min.css", true);
-    addFileLink("{$respath}jslib/jquery/jquery-ui.min.js", true);
+    updateFileLink("{$respath}jslib/jquery/jquery-3.4.1.min.js", true, "jquery-min","js","jquery:3.4.1");
+addHeaderJSFunction('ready', "jql(document).ready(function() {", "});", true);
+addHeaderJSFunction('ready', "jql(document).ready(function() {", "});");
+addHeaderJSFunction('pageload', "jql(window).on('load',function() {", "});", true);
+// use code var jql = $.noConflict(true);
+if($default){
+    updateFileLink('window.jQuery = window.$ '. $replaceVar .' = jql;',true,"jquery-js-code","js");
+}
+}
+function addjQuery2($default=false) {
+    global $respath;
+    addFileLink("{$respath}jslib/jquery/jquery-2.2.4.min.js", true, "jquery-min2","js");
+addHeaderJSFunction('readyjq2', "jq2(document).ready(function() {", "});", true);
+addHeaderJSFunction('readyjq2', "jq2(document).ready(function() {", "});");
+addHeaderJSFunction('pageloadjq2', "jq2(window).on('load',function() {", "});", true);
+if($default){
+    updateFileLink('window.jQuery = window.$ = jq2;',true,"jquery-js-code","js");
+}
+
+}
+function addjQuery1($default=false,$latest=false) {
+    global $respath;
+    if($latest){
+        updateFileLink("{$respath}jslib/jquery/jquery-min1.10.js", true, "jquery-min","js","jquery:1.10.0");        
+    }else{
+        addFileLink("{$respath}jslib/jquery/jquery-min1.10.js", true, "jquery-min1","js");
+    }
+addHeaderJSFunction('readyjq1', "jq1(document).ready(function() {", "});", true);
+addHeaderJSFunction('readyjq1', "jq1(document).ready(function() {", "});");
+addHeaderJSFunction('pageloadjq1', "jq1(window).on('load',function() {", "});", true);
+if($default){
+    if($latest){
+    updateFileLink('window.jQuery = window.$ = jq1 = jql;',true,"jquery-js-code","js");        
+    }else{
+    updateFileLink('window.jQuery = window.$ = jq1;',true,"jquery-js-code","js");
+    }
+}
+//addFileLink("{$respath}jslib/jquery-ui-1.12.1/jquery-ui.min_jq1.js", true,"jquery-ui");
+}
+function addjQueryUI($version="1.12.1") {
+    global $respath;
+    addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.min.css", true);
+    addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.theme.min.css", true);
+    addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.structure.min.css", true);
+//    addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui-bootstrap.css", true);
+    addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.min.js", true,"jquery-ui","","jqueryui:" . $version);
 }
 
 function addBootStrap() {
     global $respath;
-    addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap.min.css", true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap.min.css", true,"","","bootstrap:4");
     addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap-grid.min.css", true);
     addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap-reboot.min.css", true);
     addFileLink("{$respath}jslib/twitter/bootstrap4/js/popper.min.js", true);
@@ -35,9 +78,14 @@ function addBootStrap() {
     addFileLink("{$respath}jslib/twitter/bootstrap4/js/bootstrap.bundle.min.js", true);
 }
 
+function addFontAwesome() {
+    global $respath;
+    addFileLink("{$respath}jslib/fontawesome/css/font-awesome.min.css", true);
+}
+
 function addBootStrap3() {
     global $respath;
-    addFileLink("{$respath}jslib/twitter/bootstrap3/css/bootstrap.min.css", true);
+    addFileLink("{$respath}jslib/twitter/bootstrap3/css/bootstrap.min.css", true,"","","bootstrap:3");
     addFileLink("{$respath}jslib/twitter/bootstrap3/css/bootstrap-theme.min.css", true);
     addFileLink("{$respath}jslib/twitter/bootstrap3/js/bootstrap.min.js", true);
 }
@@ -50,12 +98,8 @@ function addAngular() {
 
 function addjQueryMobile() {
     global $respath;
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.external-png-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.icons-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.inline-png-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.inline-svg-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.structure-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.theme-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css", true);
-    addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js", true);
+    //addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.custom.structure.min.css", true);
+    addFileLink("{$respath}jslib/jquery.mobile/jquery.mobile-1.4.5.min.css", true);
+    //addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile-1.5.0-alpha.1.min.js", true,"","","jQueryM:1.5.0");
+    addFileLink("{$respath}jslib/jquery.mobile/jquery.mobile-1.4.5.min.js", true); 
 }
