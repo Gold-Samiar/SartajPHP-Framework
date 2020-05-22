@@ -22,7 +22,7 @@ break;
 <head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php addjQueryUI(); addBootStrap();  print getHeaderHTML(); ?>
+<?php SphpJsM::addjQueryUI(); SphpJsM::addBootStrap();  print getHeaderHTML(); ?>
 <link href="<?php print $respath; ?>temp/default/css/framework.css" rel="stylesheet"  type="text/css" />
 <link rel="icon" type="image/gif" href="<?php print $basepath; ?>favicon.gif" />
 </head>

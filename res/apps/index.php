@@ -3,6 +3,7 @@ $auth = "GUEST";
 $tblName = "product";
 //$page->Authenticate();
 $masterFile = $masterf;
+$formName = "";
 
 if($page->isevent){
 switch($page->sact){
@@ -22,13 +23,13 @@ break;
 case 'info':{
 $dynData = new TempFile("forms/$page->evtp.php");
 $dynData->run();
-include_once("$masterFile");
+includeOnce2("$masterFile");
 break;
 }
 case 'page' || 'show':{
 $dynData = new TempFile("{$dphppath}apps/forms/$page->evtp.php");
 $dynData->run();
-include_once("$masterFile");
+includeOnce2("$masterFile");
 break;
 }
 
@@ -47,9 +48,8 @@ $dynData = new TempFile("forms/index.php");
 $dynData = new TempFile("{$dphppath}apps/forms/index.php");
             }
 $dynData->run();
-include_once("$masterFile");
+includeOnce2("$masterFile");
     break;
 	}
 
 }
-?>

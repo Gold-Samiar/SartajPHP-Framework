@@ -18,8 +18,7 @@ global $JSServer,$blnAjaxLink;
 $blnAjaxLink = true;
 $JSServer->getAJAX();
 addHeaderJSFunction('menu_ajax', "function menu_ajax(url){
-getURL(url);
-", "}");
+", " getURL(url); }");
 }
 public function setSub(){
     $this->mnuSub = true;

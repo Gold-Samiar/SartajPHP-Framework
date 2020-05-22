@@ -1,5 +1,8 @@
 <?php
 
+final class SphpJsM{
+public function __construct() {
+    global $respath;
 // load js lib and jquery ready function
 //addFileLink("{$respath}jquery/jquery-min.js",true);
 //addFileLink("{$respath}jquery/jquery-min1.10.js",true,"jquery-min");
@@ -18,7 +21,9 @@ addHeaderJSFunction('ready', "$(document).ready(function() {", "});");
 addHeaderJSFunction('pageload', "$(window).on('load',function() {", "});", true);
 addFileLink('window.jQuery = window.$ = jql;',true,"jquery-js-code","js");
 
-function addjQueryl($default=false,$replaceVar="") {
+}
+
+public static function addjQueryl($default=false,$replaceVar="") {
     global $respath;
     updateFileLink("{$respath}jslib/jquery/jquery-3.4.1.min.js", true, "jquery-min","js","jquery:3.4.1");
 addHeaderJSFunction('ready', "jql(document).ready(function() {", "});", true);
@@ -29,7 +34,7 @@ if($default){
     updateFileLink('window.jQuery = window.$ '. $replaceVar .' = jql;',true,"jquery-js-code","js");
 }
 }
-function addjQuery2($default=false) {
+public static function addjQuery2($default=false) {
     global $respath;
     addFileLink("{$respath}jslib/jquery/jquery-2.2.4.min.js", true, "jquery-min2","js");
 addHeaderJSFunction('readyjq2', "jq2(document).ready(function() {", "});", true);
@@ -40,7 +45,7 @@ if($default){
 }
 
 }
-function addjQuery1($default=false,$latest=false) {
+public static function addjQuery1($default=false,$latest=false) {
     global $respath;
     if($latest){
         updateFileLink("{$respath}jslib/jquery/jquery-min1.10.js", true, "jquery-min","js","jquery:1.10.0");        
@@ -59,7 +64,7 @@ if($default){
 }
 //addFileLink("{$respath}jslib/jquery-ui-1.12.1/jquery-ui.min_jq1.js", true,"jquery-ui");
 }
-function addjQueryUI($version="1.12.1") {
+public static function addjQueryUI($version="1.12.1") {
     global $respath;
     addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.min.css", true);
     addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.theme.min.css", true);
@@ -68,7 +73,7 @@ function addjQueryUI($version="1.12.1") {
     addFileLink("{$respath}jslib/jquery-ui-" . $version . "/jquery-ui.min.js", true,"jquery-ui","","jqueryui:" . $version);
 }
 
-function addBootStrap() {
+public static function addBootStrap() {
     global $respath;
     addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap.min.css", true,"","","bootstrap:4");
     addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap-grid.min.css", true);
@@ -77,29 +82,45 @@ function addBootStrap() {
     addFileLink("{$respath}jslib/twitter/bootstrap4/js/bootstrap.min.js", true);
     addFileLink("{$respath}jslib/twitter/bootstrap4/js/bootstrap.bundle.min.js", true);
 }
+public static function addBootStrapKit() {
+    global $respath;
+    SphpJsM::addFontAwesome();
+    addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap.min.css", true,"","","bootstrap:4");
+    addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap-grid.min.css", true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/css/bootstrap-reboot.min.css", true);
+    addFileLink("{$respath}jslib/fonts/Roboto.css",true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/css/mdb.min.css",true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/css/style.css",true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/js/popper.min.js", true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/js/bootstrap.min.js", true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/js/bootstrap.bundle.min.js", true);
+    addFileLink("{$respath}jslib/twitter/bootstrap4/js/mdb.min.js",true);
+}
 
-function addFontAwesome() {
+public static function addFontAwesome() {
     global $respath;
     addFileLink("{$respath}jslib/fontawesome/css/font-awesome.min.css", true);
 }
 
-function addBootStrap3() {
+public static function addBootStrap3() {
     global $respath;
     addFileLink("{$respath}jslib/twitter/bootstrap3/css/bootstrap.min.css", true,"","","bootstrap:3");
     addFileLink("{$respath}jslib/twitter/bootstrap3/css/bootstrap-theme.min.css", true);
     addFileLink("{$respath}jslib/twitter/bootstrap3/js/bootstrap.min.js", true);
 }
 
-function addAngular() {
+public static function addAngular() {
     global $respath;
     addFileLink("{$respath}jslib/angular/angular.js", true);
     addFileLink("{$respath}jslib/angular/angular-mocks.js", true);
 }
 
-function addjQueryMobile() {
+public static function addjQueryMobile() {
     global $respath;
     //addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile.custom.structure.min.css", true);
     addFileLink("{$respath}jslib/jquery.mobile/jquery.mobile-1.4.5.min.css", true);
     //addFileLink("{$respath}jslib/jquery.mobile-1.4.5/jquery.mobile-1.5.0-alpha.1.min.js", true,"","","jQueryM:1.5.0");
     addFileLink("{$respath}jslib/jquery.mobile/jquery.mobile-1.4.5.min.js", true); 
+}
+
 }

@@ -1,8 +1,7 @@
 <?php
-//session_start();
-//$libpath = "G:\wamp\www/lib";
+class CaptchaSub{
 //this function is called recursivelly
-function random_string2($len=5, $str='')
+private function random_string2($len=5, $str='')
 {
   for($i=1; $i<=$len; $i++)
    {
@@ -17,12 +16,13 @@ function random_string2($len=5, $str='')
   }}
   return $str;
 }
-
+public function genImage() {
 //$bpath = "";
-$bpath = "{$comppath}captcha/";
+//$bpath = "{$comppath}captcha/";
+$bpath = dirname(__FILE__) .'/' ;
 //print $bpath;
 //create the random string using the upper function (if you want more than 5 characters just modify the parameter)
-$rand_str=random_string2(5);
+$rand_str= $this->random_string2(5);
 //We memorize the md5 sum of the string into a session variable
 $_SESSION['image_value'] = md5($rand_str);
 
@@ -80,9 +80,10 @@ imagettftext($image, $size, $angle3, 60, $size+15, $textColor3, $font3, $letter3
 imagettftext($image, $size, $angle4, 85, $size+15, $textColor4, $font4, $letter4);
 imagettftext($image, $size, $angle5, 110, $size+15, $textColor5, $font5, $letter5);
 
-header('Content-type: image/jpeg');
+//header('Content-type: image/jpeg');
 //Output image to browser
 imagejpeg($image);
 //Destroys the image
 imagedestroy($image);
-?>
+}
+}

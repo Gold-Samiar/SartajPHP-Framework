@@ -9,11 +9,10 @@
 
 class Captcha extends Sphp\comp\html\TextField{
 
-public function __construct($name='',$fieldName='',$tableName='') {
+public function oncreate($element) {
 global $page,$Client;
 global $libpath;
 global $comppath;
-$this->init($name,$fieldName,$tableName);
 $this->unsetEndTag();
 if($this->issubmit){
 if($Client->session('image_value') != md5(strtoupper($this->getValue()))){
@@ -26,9 +25,12 @@ if($page->isevent)
 {
 switch($page->sact){
 case "captcha" :{ 
-$engine = getSphpEngine();
-$engine->stopOutput();
-include_once("{$comppath}captcha/cap.php");
+SphpBase::$engine->cleanOutput();
+SphpBase::$sphp_response->addHttpHeader("Content-Type: image/jpeg");
+SphpBase::$sphp_response->addHttpHeader("Cache-Control: no-cache, must-revalidate");
+includeOnce("{$comppath}captcha/cap.php");
+$df = new CaptchaSub();
+$df->genImage();
 break;
 }
 
@@ -53,4 +55,3 @@ $this->setPreTag('<img src="'.  getEventPath('captcha').'" width="150px" height=
 }
 
 }
-?>

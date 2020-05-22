@@ -32,28 +32,28 @@ public function setBrandIcon($val) {
 
 public function onrender(){
     addHeaderJSFunctionCode("ready", "navbar", '
-    var links = $(\'.navbar ul li a\');
-    $.each(links, function (key, va) {
+    var links = jql(\'.navbar ul li a\');
+    jql.each(links, function (key, va) {
         if (va.href == document.URL) {
-            $(this).addClass(\'active\');
-            var pa = $(this).parents(\'li.nav-dli\');
-            $.each(pa, function (key2, va2) {
-                $(va2).children("a.nav-dlink:first").addClass(\'active\');
+            jql(this).addClass(\'active\');
+            var pa = jql(this).parents(\'li.nav-dli\');
+            jql.each(pa, function (key2, va2) {
+                jql(va2).children("a.nav-dlink:first").addClass(\'active\');
             });
         }
     });
-    $(\'.dropdown-menu a.dropdown-toggle\').on(\'click\', function(e) {
-  if (!$(this).next().hasClass(\'show\')) {
-    $(this).parents(\'.dropdown-menu\').first().find(\'.show\').removeClass("show");
+    jql(\'.dropdown-menu a.dropdown-toggle\').on(\'click\', function(e) {
+  if (!jql(this).next().hasClass(\'show\')) {
+    jql(this).parents(\'.dropdown-menu\').first().find(\'.show\').removeClass("show");
   }
-  var $subMenu = $(this).next(".dropdown-menu");
+  var $subMenu = jql(this).next(".dropdown-menu");
   $subMenu.toggleClass(\'show\');
-  $(this).parents(\'li.nav-item.dropdown.show\').on(\'hidden.bs.dropdown\', function(e) {
-    $(\'.dropdown-submenu .show\').removeClass("show");
+  jql(this).parents(\'li.nav-item.dropdown.show\').on(\'hidden.bs.dropdown\', function(e) {
+    jql(\'.dropdown-submenu .show\').removeClass("show");
   });
   return false;
 });
-$(\'.nav-dlink\').click();
+jql(\'.nav-dlink\').click();
 ',true);
     addHeaderCSS("navbar", ' .dropdown-submenu {
   position: relative;

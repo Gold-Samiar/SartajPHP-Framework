@@ -6,4 +6,3 @@ registerApp('admlogin',"{$phppath}apps/auth/admlogin.php");
 registerApp('admhome',"{$phppath}apps/auth/admhome.php");
 registerApp('installer',"{$phppath}apps/plugins/installer.php");
 include_once("plugin/creg.php");
-?>
